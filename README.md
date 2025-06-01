@@ -309,7 +309,7 @@ A mobile-first Progressive Web App (PWA) for managing game events in "The Ants U
 
 ## 🚀 Live Demo
 
-Visit the live app: [https://nick.github.io/the-ants-calc/](https://nick.github.io/the-ants-calc/)
+Visit the live app: [https://nick.github.io/the-ants-helpers/](https://nick.github.io/the-ants-helpers/)
 
 ## 🛠️ Technology Stack
 
@@ -331,8 +331,8 @@ Visit the live app: [https://nick.github.io/the-ants-calc/](https://nick.github.
 
 ```bash
 # Clone the repository
-git clone https://github.com/nick/the-ants-calc.git
-cd the-ants-calc
+git clone https://github.com/nick/the-ants-helpers.git
+cd the-ants-helpers
 
 # Install dependencies
 npm install
@@ -363,7 +363,7 @@ This project is automatically deployed to GitHub Pages using GitHub Actions.
 
 - Push to `main` branch triggers automatic deployment
 - GitHub Actions builds and deploys to GitHub Pages
-- Live at: `https://[username].github.io/the-ants-calc/`
+- Live at: `https://[username].github.io/the-ants-helpers/`
 
 ### Manual Deployment
 
@@ -438,7 +438,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🐛 Bug Reports
 
-Please report bugs by creating an issue in the [GitHub repository](https://github.com/nick/the-ants-calc/issues).
+Please report bugs by creating an issue in the [GitHub repository](https://github.com/nick/the-ants-helpers/issues).
 
 ---
 

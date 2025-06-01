@@ -7,7 +7,7 @@ import path from "path";
 export default defineConfig(({}) => {
   // Set base path for GitHub Pages deployment
   const isGitHubPages = process.env.GITHUB_PAGES === "true";
-  const base = isGitHubPages ? "/the-ants-calc/" : "/";
+  const base = isGitHubPages ? "/the-ants-helpers/" : "/";
 
   console.log("Environment GITHUB_PAGES:", process.env.GITHUB_PAGES);
   console.log("Environment NODE_ENV:", process.env.NODE_ENV);
