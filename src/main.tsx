@@ -25,10 +25,27 @@ async function registerServiceWorker() {
 // Register service worker
 registerServiceWorker();
 
+// Get base path from document base element or fall back to import.meta.env.BASE_URL
+const getBasePath = () => {
+  // Check if we have a base element in the document
+  const baseElement = document.querySelector("base");
+  if (baseElement && baseElement.href) {
+    const url = new URL(baseElement.href);
+    return url.pathname;
+  }
+
+  // Fall back to Vite's BASE_URL
+  return import.meta.env.BASE_URL || "/";
+};
+
+const basePath = getBasePath();
+console.log("TanStack Router base path:", basePath);
+
 // Create a new router instance
 const router = createRouter({
   routeTree,
   context: {},
+  basepath: basePath, // Add base path for GitHub Pages compatibility
   defaultPreload: "intent",
   scrollRestoration: true,
   defaultStructuralSharing: true,

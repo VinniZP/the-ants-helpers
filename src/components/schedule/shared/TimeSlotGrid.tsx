@@ -11,6 +11,7 @@ import type { TimeSlotGridProps } from "./types";
  */
 function TimeSlotGridComponent({
   viewMode,
+  selectedDay,
   visibleDays,
   events,
   onEventToggle,
@@ -21,8 +22,8 @@ function TimeSlotGridComponent({
 
   // Determine which days to show
   const daysToShow =
-    viewMode === "single"
-      ? [] // Single day is handled differently
+    viewMode === "single" && selectedDay !== undefined
+      ? [selectedDay] // Show only the selected day
       : viewMode === "select" && visibleDays
       ? [0, 1, 2, 3, 4, 5, 6].filter((day) => visibleDays[day])
       : [0, 1, 2, 3, 4, 5, 6]; // All days
@@ -40,7 +41,7 @@ function TimeSlotGridComponent({
 
   return (
     <div className="overflow-x-auto">
-      <div className="min-w-[800px]">
+      <div className="min-w-[400px]">
         {/* Header Row */}
         <div
           className="grid gap-2 mb-4"
@@ -106,14 +107,17 @@ function TimeSlotGridComponent({
                   return (
                     <div
                       key={dayIndex}
-                      className="min-h-[60px] p-2 bg-white border border-gray-200 rounded flex flex-col gap-1"
+                      className={cn(
+                        "min-h-[60px] p-2 bg-white border border-gray-200 rounded flex flex-col gap-1",
+                        viewMode === "single" ? "min-w-[200px]" : ""
+                      )}
                     >
                       {dayEvents.map((event) => (
                         <EventCard
                           key={event.id}
                           event={event}
                           onToggle={onEventToggle}
-                          size="small"
+                          size={viewMode === "single" ? "medium" : "small"}
                           className="w-full"
                         />
                       ))}

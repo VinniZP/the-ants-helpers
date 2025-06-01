@@ -119,6 +119,7 @@ export interface TimeSlotProps {
 
 export interface TimeSlotGridProps {
   viewMode: ViewMode;
+  selectedDay?: number;
   visibleDays?: boolean[];
   events: GroupedEvents;
   onEventToggle: EventToggleHandler;

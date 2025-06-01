@@ -104,11 +104,11 @@ function EventCardComponent({
             {event.raspberry && (
               <span
                 className={cn(
-                  "absolute -top-1 -right-1",
+                  "absolute -top-3 -right-3",
                   size === "small" ? "text-xs" : "text-xs lg:text-sm"
                 )}
               >
-                🍇
+                <img src="/raspberry.png" alt="Raspberry" className="size-8" />
               </span>
             )}
           </div>
@@ -117,7 +117,9 @@ function EventCardComponent({
           <div className="space-y-1">
             <div className="font-medium">
               {event.title}
-              {event.raspberry && " 🍇"}
+              {event.raspberry && (
+                <img src="/raspberry.png" alt="Raspberry" className="w-4 h-4" />
+              )}
             </div>
             <div className="text-xs text-gray-200">{event.description}</div>
             <div className="text-xs text-gray-300">

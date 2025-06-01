@@ -341,7 +341,11 @@ function TodayPage() {
                       <h3 className="text-sm font-medium text-gray-900 truncate">
                         {event.title}
                         {event.raspberry && (
-                          <span className="ml-1 text-xs">🍇</span>
+                          <img
+                            src="/raspberry.png"
+                            alt="Raspberry"
+                            className="w-4 h-4"
+                          />
                         )}
                       </h3>
                       {event.type === "game" && event.isWeeklyRecurring && (

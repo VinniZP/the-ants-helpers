@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { Button } from "../../ui/button";
 import { ViewModeSelector } from "./ViewModeSelector";
 import { TimeSlotGrid } from "../shared/TimeSlotGrid";
 import { TimeSlotList } from "../shared/TimeSlotList";
@@ -32,6 +33,39 @@ function DesktopScheduleViewComponent({
         onFocusFilterChange={actions.setFocusFilter}
       />
 
+      {/* Select Mode: Hidden Days Control Panel */}
+      {state.viewMode === "select" && (
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <h4 className="font-semibold text-blue-800 mb-3">
+            Day Visibility Controls
+          </h4>
+          <div className="grid grid-cols-7 gap-2">
+            {localizedDayNames.map((dayName, dayIndex) => (
+              <Button
+                key={dayIndex}
+                variant={state.visibleDays[dayIndex] ? "default" : "outline"}
+                size="sm"
+                onClick={() => actions.toggleDayVisibility(dayIndex)}
+                className={`text-xs ${
+                  state.visibleDays[dayIndex]
+                    ? "bg-green-600 text-white"
+                    : "bg-red-100 text-red-700 border-red-300"
+                }`}
+              >
+                {dayName.slice(0, 3)}
+                <br />
+                <span className="text-xs">
+                  {state.visibleDays[dayIndex] ? "✓" : "✗"}
+                </span>
+              </Button>
+            ))}
+          </div>
+          <p className="text-xs text-blue-600 mt-2">
+            Click day buttons to show/hide them in the schedule below
+          </p>
+        </div>
+      )}
+
       {/* Single Day View - Uses day navigator */}
       {state.viewMode === "single" && (
         <div>
@@ -48,6 +82,7 @@ function DesktopScheduleViewComponent({
             {state.layoutMode === "grid" ? (
               <TimeSlotGrid
                 viewMode="single"
+                selectedDay={state.selectedDay}
                 events={data.filteredEvents}
                 onEventToggle={eventData.actions.toggleEvent}
               />
