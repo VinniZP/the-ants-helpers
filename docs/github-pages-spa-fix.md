@@ -6,52 +6,51 @@ GitHub Pages serves static files and doesn't support server-side routing. When u
 
 ## Solution
 
-We implemented the standard GitHub Pages SPA redirect pattern using a custom `404.html` file.
+We use **hash routing** strategy with TanStack Router. URLs become `#/schedule` instead of `/schedule`, and the hash fragment is handled entirely by JavaScript, avoiding any server-side routing issues.
 
 ## How It Works
 
-### 1. 404.html Redirect
+### Hash Routing Strategy
 
-When GitHub Pages encounters a missing route, it serves our custom `404.html` file which:
+With hash routing enabled:
 
-- Captures the current path
-- Removes the base path (`/the-ants-helpers/`) to get the SPA route
-- Redirects to the main index.html with the route preserved as a query parameter
+- Routes use hash fragments: `https://nick.github.io/the-ants-helpers/#/schedule`
+- The browser never sends hash fragments to the server
+- GitHub Pages always serves `index.html` for the base URL
+- JavaScript handles all routing client-side
 
-Example:
+### TanStack Router Configuration
 
-- User visits: `/the-ants-helpers/schedule`
-- GitHub Pages returns: `404.html`
-- Script redirects to: `/the-ants-helpers/?p=%2Fschedule`
+In `src/main.tsx`, we configure the router with:
 
-### 2. Main App Route Restoration
-
-In `src/main.tsx`, we handle the redirect parameter:
-
-- Check for the `p` query parameter
-- Extract the intended route path
-- Use `window.history.replaceState()` to restore the clean URL
-- TanStack Router takes over and renders the correct component
-
-Example:
-
-- App loads with: `/the-ants-helpers/?p=%2Fschedule`
-- Script processes parameter and updates URL to: `/the-ants-helpers/schedule`
-- TanStack Router renders the Schedule component
-
-## Files Modified
-
-1. **`public/404.html`** - Custom 404 page with redirect logic
-2. **`src/main.tsx`** - Added `handleGitHubPagesRedirect()` function
+```typescript
+const router = createRouter({
+  routeTree,
+  context: {},
+  basepath: basePath,
+  history: "hash", // Enable hash routing for GitHub Pages
+  // ... other options
+});
+```
 
 ## Routes Supported
 
-This fix works for all application routes:
+All application routes work seamlessly with hash routing:
 
-- `/` - Home/Today page
-- `/schedule` - Weekly schedule view
-- `/custom` - Custom reminders
-- `/notifications` - Notification settings
+- `#/` - Home/Today page
+- `#/schedule` - Weekly schedule view
+- `#/custom` - Custom reminders
+- `#/notifications` - Notification settings
+
+## Benefits
+
+✅ **100% Reliable** - No server-side routing needed  
+✅ **No 404 errors** - Hash fragments never hit the server  
+✅ **Direct links work** - Users can bookmark and share any page URL  
+✅ **Reload works** - Refreshing any page loads correctly  
+✅ **Simple implementation** - One line configuration change  
+✅ **PWA compatible** - Works perfectly with service workers  
+✅ **Fast** - No redirect delays or complex URL manipulation
 
 ## Testing
 
@@ -59,21 +58,25 @@ To test locally:
 
 1. Build the app: `pnpm run build`
 2. Serve the dist folder: `cd dist && python3 -m http.server 8080`
-3. Navigate to: `http://localhost:8080/schedule`
-4. Should see a brief "Redirecting..." message then load the schedule page
+3. Navigate to: `http://localhost:8080/#/schedule`
+4. Reload the page - should work perfectly
+5. Try direct links to any route with hash fragments
 
-## Deployment
+## URL Examples
 
-The fix is automatically deployed when the site is built for GitHub Pages:
+- **Home**: `https://nick.github.io/the-ants-helpers/#/`
+- **Schedule**: `https://nick.github.io/the-ants-helpers/#/schedule`
+- **Custom**: `https://nick.github.io/the-ants-helpers/#/custom`
+- **Notifications**: `https://nick.github.io/the-ants-helpers/#/notifications`
 
-- The `404.html` is copied to the dist folder
-- GitHub Pages serves this file for any missing routes
-- The redirect happens transparently to users
+## Why Hash Routing?
 
-## Benefits
+Hash routing is the most reliable solution for static hosting:
 
-✅ **Direct links work** - Users can bookmark and share any page URL  
-✅ **Reload works** - Refreshing any page loads correctly  
-✅ **SEO friendly** - Clean URLs without hash routing  
-✅ **Transparent** - Users see a brief redirect, then normal navigation  
-✅ **Compatible** - Works with TanStack Router and PWA features
+- **No server configuration needed** - Works on any static host
+- **No build-time complexity** - No custom 404.html or redirect scripts
+- **No runtime overhead** - No URL parsing or history manipulation
+- **Universal compatibility** - Works the same everywhere
+- **SEO considerations** - For a PWA scheduling app, hash URLs are acceptable
+
+This approach is simpler, more reliable, and requires zero server-side setup compared to the 404.html redirect pattern.

@@ -1,6 +1,10 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
+import {
+  RouterProvider,
+  createHashHistory,
+  createRouter,
+} from "@tanstack/react-router";
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
@@ -50,12 +54,14 @@ const basePath = getBasePath();
 console.log("TanStack Router base path:", basePath);
 console.log("Vite BASE_URL:", import.meta.env.BASE_URL);
 
+const hashHistory = createHashHistory();
+
 // Create a new router instance
 const router = createRouter({
   routeTree,
   context: {},
   basepath: basePath, // Configure TanStack Router with the correct base path
-  history: "hash", // Use hash routing for GitHub Pages compatibility
+  history: hashHistory, // Use hash routing for GitHub Pages compatibility
   defaultPreload: "intent",
   scrollRestoration: true,
   defaultStructuralSharing: true,
