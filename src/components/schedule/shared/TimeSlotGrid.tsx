@@ -103,14 +103,7 @@ function TimeSlotGridComponent({
             return (
               <div
                 key={timeSlot}
-                className={cn(
-                  "grid gap-2 transition-all duration-300",
-                  isCurrent &&
-                    "ring-2 ring-orange-400 ring-opacity-50 rounded-lg",
-                  isUpcoming &&
-                    !isCurrent &&
-                    "ring-1 ring-blue-300 ring-opacity-50 rounded-lg"
-                )}
+                className={cn("grid gap-2 transition-all duration-300")}
                 style={{
                   gridTemplateColumns: `120px repeat(${daysToShow.length}, 1fr)`,
                 }}
