@@ -15,6 +15,7 @@ import {
 import { NotificationService } from "../services/notificationService";
 import { formatGameEventTime, getCurrentTimezone } from "../lib/timezone";
 import type { CustomReminder, SwipeAction } from "../data/types";
+import { getAssetPath } from "../lib/utils";
 
 export const Route = createFileRoute("/")({
   component: TodayPage,
@@ -342,7 +343,7 @@ function TodayPage() {
                         {event.title}
                         {event.raspberry && (
                           <img
-                            src="/raspberry.png"
+                            src={getAssetPath("/raspberry.png")}
                             alt="Raspberry"
                             className="w-4 h-4"
                           />

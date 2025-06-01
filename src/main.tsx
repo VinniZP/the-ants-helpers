@@ -25,27 +25,56 @@ async function registerServiceWorker() {
 // Register service worker
 registerServiceWorker();
 
-// Get base path from document base element or fall back to import.meta.env.BASE_URL
+// Handle GitHub Pages SPA redirect
+// Check if we were redirected from 404.html with a preserved path
+const handleGitHubPagesRedirect = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirectPath = urlParams.get("p");
+
+  if (redirectPath) {
+    // Remove the redirect parameter from the URL and navigate to the intended path
+    const url = new URL(window.location.href);
+    url.searchParams.delete("p");
+
+    // Replace the current history entry with the intended path
+    const newPath = import.meta.env.BASE_URL + redirectPath.substring(1);
+    window.history.replaceState(null, "", newPath + url.search + url.hash);
+  }
+};
+
+// Handle the redirect before setting up the router
+handleGitHubPagesRedirect();
+
+// Get base path for TanStack Router
 const getBasePath = () => {
-  // Check if we have a base element in the document
-  const baseElement = document.querySelector("base");
-  if (baseElement && baseElement.href) {
-    const url = new URL(baseElement.href);
-    return url.pathname;
+  // Use Vite's BASE_URL which is automatically set based on config
+  const basePath = import.meta.env.BASE_URL;
+
+  // Normalize the base path - ensure it starts with / and doesn't end with / (unless it's just '/')
+  if (basePath === "/") {
+    return "/";
   }
 
-  // Fall back to Vite's BASE_URL
-  return import.meta.env.BASE_URL || "/";
+  let normalized = basePath;
+  if (!normalized.startsWith("/")) {
+    normalized = "/" + normalized;
+  }
+  if (normalized.endsWith("/") && normalized.length > 1) {
+    normalized = normalized.slice(0, -1);
+  }
+
+  return normalized;
 };
 
 const basePath = getBasePath();
 console.log("TanStack Router base path:", basePath);
+console.log("Vite BASE_URL:", import.meta.env.BASE_URL);
 
 // Create a new router instance
 const router = createRouter({
   routeTree,
   context: {},
-  basepath: basePath, // Add base path for GitHub Pages compatibility
+  basepath: basePath, // Configure TanStack Router with the correct base path
   defaultPreload: "intent",
   scrollRestoration: true,
   defaultStructuralSharing: true,

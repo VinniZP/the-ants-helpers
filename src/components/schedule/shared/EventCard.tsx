@@ -10,7 +10,7 @@ import {
 import { ChevronDown } from "lucide-react";
 import { formatGameEventTime } from "../../../lib/timezone";
 import { getTranslation } from "../../../lib/locale";
-import { cn } from "../../../lib/utils";
+import { cn, getAssetPath } from "../../../lib/utils";
 import type { EventCardProps } from "./types";
 
 // Color mapping for event types
@@ -108,7 +108,11 @@ function EventCardComponent({
                   size === "small" ? "text-xs" : "text-xs lg:text-sm"
                 )}
               >
-                <img src="/raspberry.png" alt="Raspberry" className="size-8" />
+                <img
+                  src={getAssetPath("/raspberry.png")}
+                  alt="Raspberry"
+                  className="size-8"
+                />
               </span>
             )}
           </div>
@@ -118,7 +122,11 @@ function EventCardComponent({
             <div className="font-medium">
               {event.title}
               {event.raspberry && (
-                <img src="/raspberry.png" alt="Raspberry" className="w-4 h-4" />
+                <img
+                  src={getAssetPath("/raspberry.png")}
+                  alt="Raspberry"
+                  className="w-4 h-4"
+                />
               )}
             </div>
             <div className="text-xs text-gray-200">{event.description}</div>
