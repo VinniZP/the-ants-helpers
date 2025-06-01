@@ -25,26 +25,6 @@ async function registerServiceWorker() {
 // Register service worker
 registerServiceWorker();
 
-// Handle GitHub Pages SPA redirect
-// Check if we were redirected from 404.html with a preserved path
-const handleGitHubPagesRedirect = () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const redirectPath = urlParams.get("p");
-
-  if (redirectPath) {
-    // Remove the redirect parameter from the URL and navigate to the intended path
-    const url = new URL(window.location.href);
-    url.searchParams.delete("p");
-
-    // Replace the current history entry with the intended path
-    const newPath = import.meta.env.BASE_URL + redirectPath.substring(1);
-    window.history.replaceState(null, "", newPath + url.search + url.hash);
-  }
-};
-
-// Handle the redirect before setting up the router
-handleGitHubPagesRedirect();
-
 // Get base path for TanStack Router
 const getBasePath = () => {
   // Use Vite's BASE_URL which is automatically set based on config
@@ -75,6 +55,7 @@ const router = createRouter({
   routeTree,
   context: {},
   basepath: basePath, // Configure TanStack Router with the correct base path
+  history: "hash", // Use hash routing for GitHub Pages compatibility
   defaultPreload: "intent",
   scrollRestoration: true,
   defaultStructuralSharing: true,
