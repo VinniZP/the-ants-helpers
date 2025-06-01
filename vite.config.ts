@@ -6,11 +6,12 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({}) => {
   // Set base path for GitHub Pages deployment
-  // Check for GITHUB_PAGES environment variable or production mode
-  const isGitHubPages =
-    process.env.GITHUB_PAGES === "true" ||
-    process.env.NODE_ENV === "production";
+  const isGitHubPages = process.env.GITHUB_PAGES === "true";
   const base = isGitHubPages ? "/the-ants-calc/" : "/";
+
+  console.log("Environment GITHUB_PAGES:", process.env.GITHUB_PAGES);
+  console.log("Environment NODE_ENV:", process.env.NODE_ENV);
+  console.log("Base path being used:", base);
 
   return {
     base,
@@ -18,6 +19,7 @@ export default defineConfig(({}) => {
       react(),
       VitePWA({
         registerType: "autoUpdate",
+        base: base,
         devOptions: {
           enabled: true,
           type: "module",
