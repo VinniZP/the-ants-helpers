@@ -321,10 +321,10 @@ function NotificationsPage() {
 
           <div className="flex gap-2 pt-2">
             <Button
-              variant="outline"
+              variant="default"
               size="sm"
               onClick={handleTestNotification}
-              className="flex-1"
+              className="flex-1 bg-primary hover:bg-primary/90"
             >
               <svg
                 className="w-4 h-4 mr-2"
@@ -341,7 +341,15 @@ function NotificationsPage() {
               </svg>
               Test Notification
             </Button>
-            <Button size="sm" variant="outline" onClick={handleRescheduleAll}>
+          </div>
+
+          <div className="flex gap-2 pt-2">
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={handleRescheduleAll}
+              className="flex-1"
+            >
               <svg
                 className="w-4 h-4 mr-2"
                 fill="none"
