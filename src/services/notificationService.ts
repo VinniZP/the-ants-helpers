@@ -18,10 +18,13 @@ export class NotificationService {
   private activeTimeouts: Map<string, ReturnType<typeof setTimeout>> =
     new Map();
   private isServiceWorkerAvailable = false;
+  private soundEnabled = true; // Default to enabled
+  private vibrationEnabled = true; // Default to enabled
 
   private constructor() {
     this.checkServiceWorkerSupport();
     this.setupServiceWorkerMessageListener();
+    this.loadSoundPreferences();
   }
 
   public static getInstance(): NotificationService {
@@ -245,14 +248,20 @@ export class NotificationService {
     }
 
     try {
-      // Use regular browser notifications
+      // Use regular browser notifications with user preferences
       const notification = new Notification(title, {
         body,
         icon: "/pwa-192x192.png",
         tag: reminderId,
         data: { reminderId },
         requireInteraction: true,
+        silent: !this.soundEnabled, // Respect user sound preference
       });
+
+      // Add vibration for mobile devices if enabled and supported
+      if (this.vibrationEnabled && navigator.vibrate) {
+        navigator.vibrate([200, 100, 200]);
+      }
 
       notification.onclick = () => {
         window.focus();
@@ -420,5 +429,37 @@ export class NotificationService {
       };
       await this.scheduleCustomReminder(customReminder);
     }
+  }
+
+  private loadSoundPreferences(): void {
+    const soundPref = localStorage.getItem("notification-sound-enabled");
+    const vibrationPref = localStorage.getItem(
+      "notification-vibration-enabled"
+    );
+
+    this.soundEnabled = soundPref !== null ? JSON.parse(soundPref) : true;
+    this.vibrationEnabled =
+      vibrationPref !== null ? JSON.parse(vibrationPref) : true;
+  }
+
+  public setSoundEnabled(enabled: boolean): void {
+    this.soundEnabled = enabled;
+    localStorage.setItem("notification-sound-enabled", JSON.stringify(enabled));
+  }
+
+  public setVibrationEnabled(enabled: boolean): void {
+    this.vibrationEnabled = enabled;
+    localStorage.setItem(
+      "notification-vibration-enabled",
+      JSON.stringify(enabled)
+    );
+  }
+
+  public getSoundEnabled(): boolean {
+    return this.soundEnabled;
+  }
+
+  public getVibrationEnabled(): boolean {
+    return this.vibrationEnabled;
   }
 }

@@ -23,11 +23,16 @@ function NotificationsPage() {
   >([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [vibrationEnabled, setVibrationEnabled] = useState(true);
 
   const notificationService = NotificationService.getInstance();
 
   useEffect(() => {
     loadScheduledNotifications();
+    // Load current sound preferences
+    setSoundEnabled(notificationService.getSoundEnabled());
+    setVibrationEnabled(notificationService.getVibrationEnabled());
   }, []);
 
   const loadScheduledNotifications = async () => {
@@ -146,6 +151,25 @@ function NotificationsPage() {
     loadScheduledNotifications();
   };
 
+  const handleSoundToggle = (enabled: boolean) => {
+    setSoundEnabled(enabled);
+    notificationService.setSoundEnabled(enabled);
+  };
+
+  const handleVibrationToggle = (enabled: boolean) => {
+    setVibrationEnabled(enabled);
+    notificationService.setVibrationEnabled(enabled);
+  };
+
+  const handleTestNotification = async () => {
+    try {
+      await notificationService.testNotification();
+    } catch (error) {
+      console.error("Error testing notification:", error);
+      setError("Failed to send test notification. Please try again.");
+    }
+  };
+
   if (loading) {
     return (
       <LoadingSpinner
@@ -183,24 +207,162 @@ function NotificationsPage() {
 
   return (
     <div className="p-4 space-y-4">
+      {/* Notification Settings */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg">Notification Settings</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h4 className="font-medium">Sound</h4>
+              <p className="text-sm text-muted-foreground">
+                Play sound with notifications
+              </p>
+            </div>
+            <Button
+              variant={soundEnabled ? "default" : "outline"}
+              size="sm"
+              onClick={() => handleSoundToggle(!soundEnabled)}
+            >
+              {soundEnabled ? (
+                <>
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                    />
+                  </svg>
+                  On
+                </>
+              ) : (
+                <>
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"
+                    />
+                  </svg>
+                  Off
+                </>
+              )}
+            </Button>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <div>
+              <h4 className="font-medium">Vibration</h4>
+              <p className="text-sm text-muted-foreground">
+                Vibrate on mobile devices
+              </p>
+            </div>
+            <Button
+              variant={vibrationEnabled ? "default" : "outline"}
+              size="sm"
+              onClick={() => handleVibrationToggle(!vibrationEnabled)}
+            >
+              {vibrationEnabled ? (
+                <>
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 18h.01M8 21h8a3 3 0 003-3V6a3 3 0 00-3-3H8a3 3 0 00-3 3v12a3 3 0 003 3z"
+                    />
+                  </svg>
+                  On
+                </>
+              ) : (
+                <>
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364l12.728-12.728"
+                    />
+                  </svg>
+                  Off
+                </>
+              )}
+            </Button>
+          </div>
+
+          <div className="flex gap-2 pt-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleTestNotification}
+              className="flex-1"
+            >
+              <svg
+                className="w-4 h-4 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 17h5l-5 5v-5zM11 21H5a2 2 0 01-2-2V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v7a2 2 0 01-2 2z"
+                />
+              </svg>
+              Test Notification
+            </Button>
+            <Button size="sm" variant="outline" onClick={handleRescheduleAll}>
+              <svg
+                className="w-4 h-4 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                />
+              </svg>
+              Reschedule All
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">Scheduled Notifications</h2>
-        <Button size="sm" variant="outline" onClick={handleRescheduleAll}>
-          <svg
-            className="w-4 h-4 mr-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-            />
-          </svg>
-          Reschedule All
-        </Button>
       </div>
 
       {scheduledReminders.length === 0 ? (
