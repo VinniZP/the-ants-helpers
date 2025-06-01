@@ -4,7 +4,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(({}) => {
   // Set base path for GitHub Pages deployment
   // Check for GITHUB_PAGES environment variable or production mode
   const isGitHubPages =
