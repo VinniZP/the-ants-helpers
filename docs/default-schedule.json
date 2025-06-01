@@ -1,0 +1,1001 @@
+[
+  {
+    "utc_time": "00:05",
+    "days": {
+      "Понедельник": {
+        "text": "**сила заданий**",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Вторник": {
+        "text": "ускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Среда": {
+        "text": "ускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Четверг": {
+        "text": "ускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Пятница": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Суббота": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Воскресенье": {
+        "text": "ускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      }
+    }
+  },
+  {
+    "utc_time": "01:05",
+    "days": {
+      "Понедельник": {
+        "text": "ускор на эво\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Вторник": {
+        "text": "**сила заданий**",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Среда": {
+        "text": "ускор на эво\nсила эволюции\nостанки животных",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)",
+        "raspberry": true
+      },
+      "Четверг": {
+        "text": "споры, яйца, опыт, навыки, охота",
+        "color": "none",
+        "meaning": "—",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "ускорки без лечения",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Суббота": {
+        "text": "сила эволюции\nускор на эво",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nвсе ускорки корм",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "02:05",
+    "days": {
+      "Понедельник": {
+        "text": "**сила заданий**",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Вторник": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Среда": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Четверг": {
+        "text": "все ускорки",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Пятница": {
+        "text": "сила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Суббота": {
+        "text": "сила заданий\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "ускорки без лечения",
+        "color": "none",
+        "meaning": "—"
+      }
+    }
+  },
+  {
+    "utc_time": "03:05",
+    "days": {
+      "Понедельник": {
+        "text": "все ускорки +\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Вторник": {
+        "text": "сила заданий\nвылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Среда": {
+        "text": "сила эволюции\nостанки животных",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Четверг": {
+        "text": "споры, яйца, опыт, навыки, охота",
+        "color": "none",
+        "meaning": "—",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Суббота": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nвсе ускорки корм",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "04:05",
+    "days": {
+      "Понедельник": {
+        "text": "**сила заданий**\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Вторник": {
+        "text": "все ускорки кроме лечения",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Среда": {
+        "text": "сила заданий\nвылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Четверг": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Пятница": {
+        "text": "сила заданий\nсила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Суббота": {
+        "text": "сила заданий\nсила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Воскресенье": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      }
+    }
+  },
+  {
+    "utc_time": "05:05",
+    "days": {
+      "Понедельник": {
+        "text": "сила заданий\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)",
+        "raspberry": true
+      },
+      "Вторник": {
+        "text": "сила заданий\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Среда": {
+        "text": "ускорки без лечения\nускор на эво",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Четверг": {
+        "text": "споры, яйца, опыт, навыки, охота",
+        "color": "none",
+        "meaning": "—",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "сила заданий\nвылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      },
+      "Суббота": {
+        "text": "сила заданий\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nвсе ускорки корм",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "06:05",
+    "days": {
+      "Понедельник": {
+        "text": "**сила заданий**\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)",
+        "raspberry": true
+      },
+      "Вторник": {
+        "text": "сила эволюции\nсила заданий",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Среда": {
+        "text": "сила эволюции\nсила заданий\nостанки животных",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Четверг": {
+        "text": "сила эволюции\nсила заданий\nохота",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Пятница": {
+        "text": "сила эволюции\n**вылуп солдат**",
+        "color": "blue+green",
+        "meaning": "комбинация категорий",
+        "raspberry": true
+      },
+      "Суббота": {
+        "text": "сила заданий\nвылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "сила заданий\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      }
+    }
+  },
+  {
+    "utc_time": "07:05",
+    "days": {
+      "Понедельник": {
+        "text": "**вылуп солдат**\nсила заданий\nсила эволюции",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Вторник": {
+        "text": "вылуп солдат\nсила заданий",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Среда": {
+        "text": "ускор на вылуп\nускорки без лечения",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Четверг": {
+        "text": "ускор на вылуп\nспоры, яйца, опыт, навыки",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Суббота": {
+        "text": "сила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "08:05",
+    "days": {
+      "Понедельник": {
+        "text": "вылуп солдат\n**сила заданий**",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Вторник": {
+        "text": "сила заданий",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Среда": {
+        "text": "останки животных\nохота",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Четверг": {
+        "text": "сила заданий",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Пятница": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Суббота": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Воскресенье": {
+        "text": "сила заданий",
+        "color": "none",
+        "meaning": "—"
+      }
+    }
+  },
+  {
+    "utc_time": "09:05",
+    "days": {
+      "Понедельник": {
+        "text": "ускор на эво",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Вторник": {
+        "text": "ускор на стройку\n**сила заданий**",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Среда": {
+        "text": "ускор на стройку\nускор на эво\nсила эволюции",
+        "color": "yellow+blue",
+        "meaning": "комбинация категорий",
+        "raspberry": true
+      },
+      "Четверг": {
+        "text": "ускор на стройку\nспоры, яйца, опыт, навыки",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "ускорки без лечения",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Суббота": {
+        "text": "сила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nускор на стройку",
+        "color": "yellow+green",
+        "meaning": "комбинация категорий",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "10:05",
+    "days": {
+      "Понедельник": {
+        "text": "сила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Вторник": {
+        "text": "**сила заданий**\nускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Среда": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Четверг": {
+        "text": "все ускорки",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Пятница": {
+        "text": "сила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Суббота": {
+        "text": "ускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "ускорки без лечения",
+        "color": "none",
+        "meaning": "—"
+      }
+    }
+  },
+  {
+    "utc_time": "11:05",
+    "days": {
+      "Понедельник": {
+        "text": "все ускорки +\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Вторник": {
+        "text": "сила заданий\nвылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Среда": {
+        "text": "сила эволюции\nостанки животных",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Четверг": {
+        "text": "споры, яйца, опыт, навыки, охота",
+        "color": "none",
+        "meaning": "—",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Суббота": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nускорки корм",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "12:05",
+    "days": {
+      "Понедельник": {
+        "text": "**сила заданий**\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Вторник": {
+        "text": "все ускорки кроме лечения",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Среда": {
+        "text": "сила заданий\nвылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Четверг": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Пятница": {
+        "text": "сила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Суббота": {
+        "text": "сила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Воскресенье": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      }
+    }
+  },
+  {
+    "utc_time": "13:05",
+    "days": {
+      "Понедельник": {
+        "text": "сила заданий\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)",
+        "raspberry": true
+      },
+      "Вторник": {
+        "text": "сила заданий\nсила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Среда": {
+        "text": "ускорки без лечения\nускор на эво\nостанки животных",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Четверг": {
+        "text": "споры, яйца, опыт, навыки, охота",
+        "color": "none",
+        "meaning": "—",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "сила заданий\nвылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      },
+      "Суббота": {
+        "text": "сила заданий\nсила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nускорки корм",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "14:05",
+    "days": {
+      "Понедельник": {
+        "text": "**сила заданий**\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)",
+        "raspberry": true
+      },
+      "Вторник": {
+        "text": "сила эволюции\nсила заданий",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Среда": {
+        "text": "сила эволюции\nсила заданий",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Четверг": {
+        "text": "сила эволюции\nсила заданий",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Пятница": {
+        "text": "сила эволюции\n**вылуп солдат**",
+        "color": "blue+green",
+        "meaning": "комбинация категорий",
+        "raspberry": true
+      },
+      "Суббота": {
+        "text": "сила заданий\nвылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "сила заданий\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      }
+    }
+  },
+  {
+    "utc_time": "15:05",
+    "days": {
+      "Понедельник": {
+        "text": "вылуп солдат\n**сила заданий**\nсила эволюции",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Вторник": {
+        "text": "сила заданий",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Среда": {
+        "text": "ускорки без лечения\nускор на эво",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Четверг": {
+        "text": "ускор на вылуп\nспоры, яйца, опыт, навыки",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Суббота": {
+        "text": "сила эволюции\nвылуп солдат",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "16:05",
+    "days": {
+      "Понедельник": {
+        "text": "вылуп солдат\n**сила заданий**",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Вторник": {
+        "text": "сила заданий\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Среда": {
+        "text": "останки животных\nсила заданий\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Четверг": {
+        "text": "охота\nсила заданий\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Пятница": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Суббота": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Воскресенье": {
+        "text": "сила заданий\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      }
+    }
+  },
+  {
+    "utc_time": "17:05",
+    "days": {
+      "Понедельник": {
+        "text": "ускор на эво\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Вторник": {
+        "text": "**сила заданий**",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Среда": {
+        "text": "ускор на эво\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)",
+        "raspberry": true
+      },
+      "Четверг": {
+        "text": "споры, яйца, опыт, навыки",
+        "color": "none",
+        "meaning": "—",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "ускорки без лечения",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Суббота": {
+        "text": "сила эволюции\nускор на эво",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nвсе ускорки корм",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "18:05",
+    "days": {
+      "Понедельник": {
+        "text": "сила заданий",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Вторник": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Среда": {
+        "text": "останки животных\nускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Четверг": {
+        "text": "охота\nвсе ускорки",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Пятница": {
+        "text": "сила заданий\nсила эволюции",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Суббота": {
+        "text": "сила заданий\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "ускорки без лечения",
+        "color": "none",
+        "meaning": "—"
+      }
+    }
+  },
+  {
+    "utc_time": "19:05",
+    "days": {
+      "Понедельник": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Вторник": {
+        "text": "сила заданий",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Среда": {
+        "text": "сила заданий",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Четверг": {
+        "text": "споры, яйца",
+        "color": "none",
+        "meaning": "—",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Суббота": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nускорки корм",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "20:05",
+    "days": {
+      "Понедельник": {
+        "text": "**сила эволюции**",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Вторник": {
+        "text": "ускорки без лечения",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Среда": {
+        "text": "вылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Четверг": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Пятница": {
+        "text": "сила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Суббота": {
+        "text": "сила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Воскресенье": {
+        "text": "все ускорки +",
+        "color": "none",
+        "meaning": "—"
+      }
+    }
+  },
+  {
+    "utc_time": "21:05",
+    "days": {
+      "Понедельник": {
+        "text": "сила заданий\nускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)",
+        "raspberry": true
+      },
+      "Вторник": {
+        "text": "сила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Среда": {
+        "text": "ускор на эво\nостанки животных",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Четверг": {
+        "text": "опыт, навыки, охота",
+        "color": "none",
+        "meaning": "—",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "сила заданий\nвылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      },
+      "Суббота": {
+        "text": "сила эволюции\nускор на вылуп",
+        "color": "blue+green",
+        "meaning": "комбинация категорий"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**\nускорки корм",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  },
+  {
+    "utc_time": "22:05",
+    "days": {
+      "Понедельник": {
+        "text": "ускор на стройку",
+        "color": "yellow",
+        "meaning": "ускорения на стройку (building speed‑ups)",
+        "raspberry": true
+      },
+      "Вторник": {
+        "text": "вылуп солдат",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Среда": {
+        "text": "сила эволюции\nостанки животных",
+        "color": "blue",
+        "meaning": "ускорения на эволюцию (evolution speed‑ups)"
+      },
+      "Четверг": {
+        "text": "опыт, навыки, охота",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Пятница": {
+        "text": "сила заданий",
+        "color": "none",
+        "meaning": "—",
+        "raspberry": true
+      },
+      "Суббота": {
+        "text": "сила заданий",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Воскресенье": {
+        "text": "ускорки корм",
+        "color": "none",
+        "meaning": "—"
+      }
+    }
+  },
+  {
+    "utc_time": "23:05",
+    "days": {
+      "Понедельник": {
+        "text": "**сила заданий**",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Вторник": {
+        "text": "все ускорки кроме лечения",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Среда": {
+        "text": "сила заданий",
+        "color": "none",
+        "meaning": "—"
+      },
+      "Четверг": {
+        "text": "споры, яйца",
+        "color": "none",
+        "meaning": "—",
+        "raspberry": true
+      },
+      "Пятница": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Суббота": {
+        "text": "ускор на вылуп",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)"
+      },
+      "Воскресенье": {
+        "text": "**вылуп/улучшение дикого**",
+        "color": "green",
+        "meaning": "ускорения на вылуп (hatching speed‑ups)",
+        "raspberry": true
+      }
+    }
+  }
+]
