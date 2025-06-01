@@ -3,9 +3,11 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { MobileLayout } from "../components/layout/MobileLayout";
 import { NotificationBanner } from "../components/ui/notification-banner";
 import { AddReminderDialog } from "../components/reminders/AddReminderDialog";
+import { PWAInstallPopup } from "../components/pwa/PWAInstallPopup";
 import { useState, useEffect } from "react";
 import { NotificationService } from "../services/notificationService";
 import { initializeDatabase } from "../data/database";
+import { usePWAPrompt } from "../hooks/usePWAPrompt";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -19,6 +21,9 @@ function RootComponent() {
     useState<NotificationService | null>(null);
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+
+  // PWA prompt management
+  const { shouldShowPrompt, dismissPrompt, markAsInstalled } = usePWAPrompt();
 
   useEffect(() => {
     // Initialize database on app start
@@ -87,6 +92,14 @@ function RootComponent() {
     setRefreshTrigger((prev) => prev + 1);
   };
 
+  const handlePWAInstallClose = () => {
+    dismissPrompt(true); // Remind later
+  };
+
+  const handlePWAInstalled = () => {
+    markAsInstalled();
+  };
+
   return (
     <>
       <MobileLayout
@@ -110,6 +123,14 @@ function RootComponent() {
         onOpenChange={setShowAddDialog}
         onReminderAdded={handleReminderAdded}
       />
+
+      {/* Automatic PWA Install Prompt */}
+      {shouldShowPrompt && (
+        <PWAInstallPopup
+          onClose={handlePWAInstallClose}
+          onInstalled={handlePWAInstalled}
+        />
+      )}
 
       <TanStackRouterDevtools />
     </>

@@ -75,6 +75,15 @@ export interface ResponsiveHook {
   breakpoint: "mobile" | "desktop";
 }
 
+// Current time tracking hook
+export interface CurrentTimeHook {
+  currentTime: Date;
+  isCurrentTimeSlot: (utcTime: string) => boolean;
+  isUpcomingTimeSlot: (utcTime: string) => boolean;
+  getCurrentLocalTime: () => string;
+  getCurrentDayOfWeek: () => number;
+}
+
 // Component prop interfaces
 export interface WeeklyScheduleProps {
   className?: string;

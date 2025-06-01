@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import { Link } from "@tanstack/react-router";
 import { Calendar, Plus, Settings, Gamepad2 } from "lucide-react";
+import { PWAInstallButton } from "../pwa/PWAInstallButton";
 
 interface MobileLayoutProps {
   children: React.ReactNode;
@@ -103,15 +104,18 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({
             })}
           </nav>
 
-          <Badge
-            variant={permissionStatus.variant}
-            className="text-xs lg:text-sm"
-          >
-            <div
-              className={`w-2 h-2 rounded-full ${permissionStatus.color} mr-1`}
-            />
-            {permissionStatus.text}
-          </Badge>
+          <div className="flex items-center gap-2">
+            <PWAInstallButton variant="compact" />
+            <Badge
+              variant={permissionStatus.variant}
+              className="text-xs lg:text-sm"
+            >
+              <div
+                className={`w-2 h-2 rounded-full ${permissionStatus.color} mr-1`}
+              />
+              {permissionStatus.text}
+            </Badge>
+          </div>
         </div>
       </header>
 
