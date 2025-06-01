@@ -3,6 +3,7 @@ import type {
   ViewMode,
   LayoutMode,
   FocusFilter,
+  RaspberryFilter,
   ScheduleStateHook,
 } from "../shared/types";
 
@@ -21,6 +22,8 @@ export function useScheduleState(): ScheduleStateHook {
   const [viewMode, setViewMode] = useState<ViewMode>("all");
   const [layoutMode, setLayoutMode] = useState<LayoutMode>("grid");
   const [focusFilter, setFocusFilter] = useState<FocusFilter>("all");
+  const [raspberryFilter, setRaspberryFilter] =
+    useState<RaspberryFilter>("all");
   const [visibleDays, setVisibleDays] = useState<boolean[]>([
     true,
     true,
@@ -56,6 +59,10 @@ export function useScheduleState(): ScheduleStateHook {
     setFocusFilter(filter);
   }, []);
 
+  const handleSetRaspberryFilter = useCallback((filter: RaspberryFilter) => {
+    setRaspberryFilter(filter);
+  }, []);
+
   const handleToggleDayVisibility = useCallback((day: number) => {
     if (day >= 0 && day <= 6) {
       setVisibleDays((prev) => {
@@ -72,6 +79,7 @@ export function useScheduleState(): ScheduleStateHook {
       viewMode,
       layoutMode,
       focusFilter,
+      raspberryFilter,
       visibleDays,
     },
     actions: {
@@ -79,6 +87,7 @@ export function useScheduleState(): ScheduleStateHook {
       setViewMode: handleSetViewMode,
       setLayoutMode: handleSetLayoutMode,
       setFocusFilter: handleSetFocusFilter,
+      setRaspberryFilter: handleSetRaspberryFilter,
       toggleDayVisibility: handleToggleDayVisibility,
     },
   };

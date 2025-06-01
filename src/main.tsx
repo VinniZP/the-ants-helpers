@@ -29,38 +29,12 @@ async function registerServiceWorker() {
 // Register service worker
 registerServiceWorker();
 
-// Get base path for TanStack Router
-const getBasePath = () => {
-  // Use Vite's BASE_URL which is automatically set based on config
-  const basePath = import.meta.env.BASE_URL;
-
-  // Normalize the base path - ensure it starts with / and doesn't end with / (unless it's just '/')
-  if (basePath === "/") {
-    return "/";
-  }
-
-  let normalized = basePath;
-  if (!normalized.startsWith("/")) {
-    normalized = "/" + normalized;
-  }
-  if (normalized.endsWith("/") && normalized.length > 1) {
-    normalized = normalized.slice(0, -1);
-  }
-
-  return normalized;
-};
-
-const basePath = getBasePath();
-console.log("TanStack Router base path:", basePath);
-console.log("Vite BASE_URL:", import.meta.env.BASE_URL);
-
 const hashHistory = createHashHistory();
 
 // Create a new router instance
 const router = createRouter({
   routeTree,
   context: {},
-  basepath: basePath, // Configure TanStack Router with the correct base path
   history: hashHistory, // Use hash routing for GitHub Pages compatibility
   defaultPreload: "intent",
   scrollRestoration: true,

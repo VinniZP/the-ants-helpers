@@ -10,21 +10,28 @@ import {
   Calendar,
   CalendarDays,
   Settings,
+  Cherry,
+  ToggleLeft,
+  ToggleRight,
 } from "lucide-react";
-import { cn } from "../../../lib/utils";
+import { cn, getAssetPath } from "../../../lib/utils";
 import type { ViewModeSelectorProps } from "../shared/types";
 
 /**
  * Desktop view mode selector component
- * Provides controls for view mode, layout mode, and focus filter
+ * Provides controls for view mode, layout mode, focus filter, and raspberry filter
  */
 function ViewModeSelectorComponent({
   viewMode,
   layoutMode,
   focusFilter,
+  raspberryFilter,
   onViewModeChange,
   onLayoutModeChange,
   onFocusFilterChange,
+  onRaspberryFilterChange,
+  onToggleAllFiltered,
+  hasFilteredEvents,
 }: ViewModeSelectorProps) {
   const viewModeOptions = [
     {
@@ -80,6 +87,21 @@ function ViewModeSelectorComponent({
       label: "Inactive Only",
       description: "Show only disabled events",
       icon: EyeOff,
+    },
+  ];
+
+  const raspberryFilterOptions = [
+    {
+      value: "all" as const,
+      label: "All Events",
+      description: "Show all events regardless of raspberry status",
+      icon: Eye,
+    },
+    {
+      value: "raspberry-only" as const,
+      label: "Raspberry Only",
+      description: "Show only events with raspberry rewards",
+      icon: Cherry,
     },
   ];
 
@@ -195,6 +217,99 @@ function ViewModeSelectorComponent({
             })}
           </div>
         </div>
+
+        {/* Raspberry Filter Selection */}
+        <div className="flex flex-col space-y-2">
+          <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+            Raspberry Filter
+            <img
+              src={getAssetPath("/raspberry.png")}
+              alt="Raspberry"
+              className="w-4 h-4"
+            />
+          </label>
+          <div className="flex flex-wrap gap-2">
+            {raspberryFilterOptions.map((option) => {
+              const Icon = option.icon;
+              return (
+                <Tooltip key={option.value}>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant={
+                        raspberryFilter === option.value ? "default" : "outline"
+                      }
+                      size="sm"
+                      onClick={() => onRaspberryFilterChange(option.value)}
+                      className={cn(
+                        "flex items-center gap-2 min-w-[100px]",
+                        raspberryFilter === option.value &&
+                          "bg-pink-600 text-white"
+                      )}
+                    >
+                      {option.value === "raspberry-only" ? (
+                        <img
+                          src={getAssetPath("/raspberry.png")}
+                          alt="Raspberry"
+                          className="w-4 h-4"
+                        />
+                      ) : (
+                        <Icon className="h-4 w-4" />
+                      )}
+                      {option.label}
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{option.description}</p>
+                  </TooltipContent>
+                </Tooltip>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Toggle All Filtered Events */}
+        {hasFilteredEvents && (
+          <div className="flex flex-col space-y-2 pt-2 border-t border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              Bulk Actions
+            </label>
+            <div className="flex flex-wrap gap-2">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => onToggleAllFiltered(true)}
+                    className="flex items-center gap-2 bg-green-50 hover:bg-green-100 border-green-200"
+                  >
+                    <ToggleRight className="h-4 w-4 text-green-600" />
+                    Enable All Filtered
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Enable all events currently shown in the filtered view</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => onToggleAllFiltered(false)}
+                    className="flex items-center gap-2 bg-red-50 hover:bg-red-100 border-red-200"
+                  >
+                    <ToggleLeft className="h-4 w-4 text-red-600" />
+                    Disable All Filtered
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Disable all events currently shown in the filtered view</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          </div>
+        )}
 
         {/* Additional Controls for Select Mode */}
         {viewMode === "select" && (

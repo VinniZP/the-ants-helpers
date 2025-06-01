@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { Button } from "../../ui/button";
 import { ViewModeSelector } from "./ViewModeSelector";
 import { TimeSlotGrid } from "../shared/TimeSlotGrid";
@@ -21,6 +21,11 @@ function DesktopScheduleViewComponent({
   const localeSettings = getLocaleSettings();
   const localizedDayNames = getLocalizedDayNames(localeSettings);
 
+  // Check if there are any filtered events to show toggle all controls
+  const hasFilteredEvents = useMemo(() => {
+    return Object.keys(data.filteredEvents).length > 0;
+  }, [data.filteredEvents]);
+
   return (
     <div className="space-y-4">
       {/* View Controls */}
@@ -28,9 +33,13 @@ function DesktopScheduleViewComponent({
         viewMode={state.viewMode}
         layoutMode={state.layoutMode}
         focusFilter={state.focusFilter}
+        raspberryFilter={state.raspberryFilter}
         onViewModeChange={actions.setViewMode}
         onLayoutModeChange={actions.setLayoutMode}
         onFocusFilterChange={actions.setFocusFilter}
+        onRaspberryFilterChange={actions.setRaspberryFilter}
+        onToggleAllFiltered={eventData.actions.toggleAllFiltered}
+        hasFilteredEvents={hasFilteredEvents}
       />
 
       {/* Select Mode: Hidden Days Control Panel */}

@@ -28,10 +28,15 @@ function filterEventsForView(
   eventsByTime: GroupedEvents,
   filters: EventFilters
 ): GroupedEvents {
-  const { selectedDay, viewMode, focusFilter, visibleDays } = filters;
+  const { selectedDay, viewMode, focusFilter, raspberryFilter, visibleDays } =
+    filters;
 
   // Early return for simple cases
-  if (focusFilter === "all" && viewMode === "all") {
+  if (
+    focusFilter === "all" &&
+    viewMode === "all" &&
+    raspberryFilter === "all"
+  ) {
     return eventsByTime;
   }
 
@@ -43,6 +48,11 @@ function filterEventsForView(
       filtered = filtered.filter((event) =>
         focusFilter === "active" ? event.isEnabled : !event.isEnabled
       );
+    }
+
+    // Apply raspberry filter
+    if (raspberryFilter === "raspberry-only") {
+      filtered = filtered.filter((event) => event.raspberry === true);
     }
 
     // Apply day visibility filter for select mode
@@ -129,6 +139,32 @@ export function useEventData(filters: EventFilters): EventDataHook {
     await loadEvents();
   }, [loadEvents]);
 
+  // Toggle all events in the filtered view
+  const toggleAllFiltered = useCallback(
+    async (enabled: boolean) => {
+      try {
+        // Get all unique events from the filtered view
+        const filteredEventIds = new Set<string>();
+        Object.values(filteredEvents).forEach((timeEvents) => {
+          timeEvents.forEach((event) => {
+            filteredEventIds.add(event.id);
+          });
+        });
+
+        // Toggle each filtered event
+        const togglePromises = Array.from(filteredEventIds).map((eventId) =>
+          toggleEvent(eventId, enabled, undefined)
+        );
+
+        await Promise.all(togglePromises);
+      } catch (error) {
+        console.error("Error toggling all filtered events:", error);
+        throw error;
+      }
+    },
+    [filteredEvents, toggleEvent]
+  );
+
   // Load events on mount
   useEffect(() => {
     loadEvents();
@@ -145,6 +181,7 @@ export function useEventData(filters: EventFilters): EventDataHook {
       loadEvents,
       toggleEvent,
       refreshEvents,
+      toggleAllFiltered,
     },
   };
 }

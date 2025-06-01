@@ -22,6 +22,7 @@ function WeeklyScheduleComponent({ className }: WeeklyScheduleProps) {
     selectedDay: scheduleState.state.selectedDay,
     viewMode: scheduleState.state.viewMode,
     focusFilter: scheduleState.state.focusFilter,
+    raspberryFilter: scheduleState.state.raspberryFilter,
     visibleDays: scheduleState.state.visibleDays,
   };
 

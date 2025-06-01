@@ -5,6 +5,7 @@ import type { GameEventReminder } from "../../../data/types";
 export type ViewMode = "all" | "select" | "single";
 export type LayoutMode = "grid" | "list";
 export type FocusFilter = "all" | "active" | "inactive";
+export type RaspberryFilter = "all" | "raspberry-only";
 
 // Grouped events structure
 export interface GroupedEvents {
@@ -16,6 +17,7 @@ export interface EventFilters {
   selectedDay?: number;
   viewMode: ViewMode;
   focusFilter: FocusFilter;
+  raspberryFilter: RaspberryFilter;
   visibleDays?: boolean[];
 }
 
@@ -25,6 +27,7 @@ export interface ScheduleState {
   viewMode: ViewMode;
   layoutMode: LayoutMode;
   focusFilter: FocusFilter;
+  raspberryFilter: RaspberryFilter;
   visibleDays: boolean[];
 }
 
@@ -51,6 +54,7 @@ export interface ScheduleStateHook {
     setViewMode: (mode: ViewMode) => void;
     setLayoutMode: (mode: LayoutMode) => void;
     setFocusFilter: (filter: FocusFilter) => void;
+    setRaspberryFilter: (filter: RaspberryFilter) => void;
     toggleDayVisibility: (day: number) => void;
   };
 }
@@ -61,6 +65,7 @@ export interface EventDataHook {
     loadEvents: () => Promise<void>;
     toggleEvent: EventToggleHandler;
     refreshEvents: () => Promise<void>;
+    toggleAllFiltered: (enabled: boolean) => Promise<void>;
   };
 }
 
@@ -97,9 +102,13 @@ export interface ViewModeSelectorProps {
   viewMode: ViewMode;
   layoutMode: LayoutMode;
   focusFilter: FocusFilter;
+  raspberryFilter: RaspberryFilter;
   onViewModeChange: (mode: ViewMode) => void;
   onLayoutModeChange: (mode: LayoutMode) => void;
   onFocusFilterChange: (filter: FocusFilter) => void;
+  onRaspberryFilterChange: (filter: RaspberryFilter) => void;
+  onToggleAllFiltered: (enabled: boolean) => void;
+  hasFilteredEvents: boolean;
 }
 
 export interface EventCardProps {
