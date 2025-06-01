@@ -75,11 +75,38 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-14 items-center justify-between px-4">
+        <div className="flex h-14 lg:h-16 items-center justify-between px-4 lg:px-6">
           <div className="flex items-center space-x-2">
-            <h1 className="font-semibold text-lg">Ants Scheduler</h1>
+            <h1 className="font-semibold text-lg lg:text-xl">Ants Scheduler</h1>
           </div>
-          <Badge variant={permissionStatus.variant} className="text-xs">
+
+          {/* Desktop Navigation - Top horizontal */}
+          <nav className="hidden lg:flex items-center space-x-6">
+            {navigationItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = currentPath === item.path;
+
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
+                    isActive
+                      ? "bg-accent text-accent-foreground"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </nav>
+
+          <Badge
+            variant={permissionStatus.variant}
+            className="text-xs lg:text-sm"
+          >
             <div
               className={`w-2 h-2 rounded-full ${permissionStatus.color} mr-1`}
             />
@@ -89,20 +116,20 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 pb-20">{children}</main>
+      <main className="flex-1 pb-20 lg:pb-6 lg:px-6 lg:py-6">{children}</main>
 
-      {/* Floating Action Button */}
+      {/* Floating Action Button - Desktop positioning */}
       <Button
         onClick={onAddReminderClick}
         size="lg"
-        className="fixed bottom-20 right-4 h-12 w-12 rounded-full shadow-lg z-40"
+        className="fixed bottom-20 lg:bottom-6 right-4 lg:right-6 h-12 w-12 lg:h-14 lg:w-14 rounded-full shadow-lg z-40 lg:hover:shadow-xl transition-shadow"
       >
         <Plus className="h-6 w-6" />
         <span className="sr-only">Add Reminder</span>
       </Button>
 
-      {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 z-30 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
+      {/* Bottom Navigation - Mobile only */}
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-30 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
         <div className="flex items-center justify-around h-16">
           {navigationItems.map((item) => {
             const Icon = item.icon;
