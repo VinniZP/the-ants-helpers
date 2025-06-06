@@ -283,6 +283,13 @@ export class NotificationService {
     const [hours, minutes] = reminder.time.split(":").map(Number);
 
     switch (reminder.recurrence) {
+      case "hourly":
+        const nextHour = new Date(now);
+        nextHour.setMinutes(minutes, 0, 0);
+        if (nextHour <= now) {
+          nextHour.setHours(nextHour.getHours() + 1);
+        }
+        return nextHour;
       case "daily":
         const today = new Date(now);
         today.setHours(hours, minutes, 0, 0);
