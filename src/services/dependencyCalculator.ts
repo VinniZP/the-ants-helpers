@@ -147,10 +147,7 @@ console.log(
  * Topological sort algorithm for proper dependency ordering
  * Ensures all dependencies come before their dependents
  */
-function topologicalSort(
-  dependencies: BuildRequirement[],
-  buildState: BuildState
-): BuildRequirement[] {
+function topologicalSort(dependencies: BuildRequirement[]): BuildRequirement[] {
   // Create adjacency list and in-degree count
   const adjList = new Map<string, string[]>();
   const inDegree = new Map<string, number>();
@@ -312,11 +309,8 @@ export function calculateBuildDependencies(
   cacheMetrics.cacheMisses++;
 
   const visitedSet = new Set<string>();
-  const dependencies: BuildRequirement[] = [];
+  // const dependencies: BuildRequirement[] = [];
   let currentStep = 1;
-
-  // Memoization cache for dependency relationships - prevents recalculation
-  const dependsOnCache = new Map<string, boolean>();
 
   // Recursive dependency resolution with cycle detection
   function resolveDependencies(
@@ -356,7 +350,7 @@ export function calculateBuildDependencies(
 
         // Check if this requirement is already satisfied
         const currentLevel = enhancedBuildState[reqBuildingId] || 0;
-        const isBuilt = currentLevel >= reqLevel;
+        // const isBuilt = currentLevel >= reqLevel;
 
         // Recursively resolve dependencies for this requirement
         const subDependencies = resolveDependencies(
@@ -447,76 +441,11 @@ export function calculateBuildDependencies(
     }
   }
 
-  // Memoized dependency checking function for proper topological sorting
-  function dependsOn(
-    dependent: BuildRequirement,
-    dependency: BuildRequirement
-  ): boolean {
-    // Same building: level-based dependency
-    if (dependent.id === dependency.id) {
-      return dependent.level > dependency.level;
-    }
-
-    // Cache key for memoization
-    const cacheKey = `${dependent.id}-${dependent.level}->${dependency.id}-${dependency.level}`;
-
-    if (dependsOnCache.has(cacheKey)) {
-      return dependsOnCache.get(cacheKey)!;
-    }
-
-    // Get building data
-    const dependentBuilding = findBuilding(dependent.id);
-    if (!dependentBuilding) {
-      dependsOnCache.set(cacheKey, false);
-      return false;
-    }
-
-    const dependentLevelData = dependentBuilding.levels.find(
-      (l) => l.level === dependent.level
-    );
-    if (!dependentLevelData) {
-      dependsOnCache.set(cacheKey, false);
-      return false;
-    }
-
-    // Direct dependency check
-    const requiredLevel = dependentLevelData.requirements[dependency.id];
-    if (requiredLevel !== undefined && requiredLevel >= dependency.level) {
-      dependsOnCache.set(cacheKey, true);
-      return true;
-    }
-
-    // Transitive dependency check (check all direct requirements)
-    for (const [reqId, reqLevel] of Object.entries(
-      dependentLevelData.requirements
-    )) {
-      const intermediateDep: BuildRequirement = {
-        id: reqId as BuildingId,
-        level: reqLevel,
-        isBuilt: false,
-        dependencies: [],
-        step: 0,
-      };
-
-      // Recursive check with memoization
-      if (dependsOn(intermediateDep, dependency)) {
-        dependsOnCache.set(cacheKey, true);
-        return true;
-      }
-    }
-
-    dependsOnCache.set(cacheKey, false);
-    return false;
-  }
-
   // Add performance monitoring for sorting algorithm
   const sortStartTime = performance.now();
 
   // Topological sort to ensure all dependencies come before their dependents
-  const sortedDeps = topologicalSort(
-    Array.from(flatDeps.values()),
-    enhancedBuildState
-  );
+  const sortedDeps = topologicalSort(Array.from(flatDeps.values()));
 
   const sortTime = performance.now() - sortStartTime;
 
@@ -667,16 +596,6 @@ function calculateBuildingDepth(
 }
 
 /**
- * Calculate dependency depth for proper ordering (legacy function, kept for compatibility)
- */
-function calculateDependencyDepth(requirement: BuildRequirement): number {
-  if (requirement.dependencies.length === 0) return 0;
-  return (
-    1 + Math.max(...requirement.dependencies.map(calculateDependencyDepth))
-  );
-}
-
-/**
  * Find building by ID in the buildings array
  */
 function findBuilding(buildingId: BuildingId): Building | undefined {
@@ -745,7 +664,6 @@ export function getBuildingInfo(buildingId: BuildingId) {
 }
 
 // Cache size management constants
-const MAX_CACHE_SIZE = 100;
 const CACHE_CLEANUP_THRESHOLD = 120;
 
 /**

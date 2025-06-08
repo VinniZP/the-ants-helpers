@@ -68,7 +68,7 @@ export function BuildSequenceViewer({
                 : "No dependencies found."}
             </div>
           ) : (
-            filteredQueue.map((dependency, index) => {
+            filteredQueue.map((dependency) => {
               const isBuilt = isStepBuilt(dependency);
               // Calculate the original step number from the unfiltered queue
               const originalStepIndex = buildQueue.findIndex(
@@ -80,7 +80,6 @@ export function BuildSequenceViewer({
               return (
                 <Card
                   key={`${dependency.id}-${dependency.level}`}
-                  small={true}
                   className={`relative ${
                     isBuilt ? "bg-green-50 border-green-200" : ""
                   }`}
