@@ -52,23 +52,23 @@ export function BuildSequenceViewer({
         <CardTitle>Build Sequence</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-3">
-          {!buildQueue ? (
-            <div className="text-center py-8 text-muted-foreground">
-              <div className="text-lg mb-2">No build queue calculated</div>
-              <div className="text-sm">
-                Select a target building and click "Select Target & Calculate
-                Queue" to generate the build sequence
-              </div>
+        {!buildQueue ? (
+          <div className="text-center py-8 text-muted-foreground">
+            <div className="text-lg mb-2">No build queue calculated</div>
+            <div className="text-sm">
+              Select a target building and click "Select Target & Calculate
+              Queue" to generate the build sequence
             </div>
-          ) : filteredQueue.length === 0 ? (
-            <div className="text-center py-8 text-muted-foreground">
-              {showBuiltOnly
-                ? "All dependencies are built!"
-                : "No dependencies found."}
-            </div>
-          ) : (
-            filteredQueue.map((dependency) => {
+          </div>
+        ) : filteredQueue.length === 0 ? (
+          <div className="text-center py-8 text-muted-foreground">
+            {showBuiltOnly
+              ? "All dependencies are built!"
+              : "No dependencies found."}
+          </div>
+        ) : (
+          <div className="space-y-1">
+            {filteredQueue.map((dependency) => {
               const isBuilt = isStepBuilt(dependency);
               // Calculate the original step number from the unfiltered queue
               const originalStepIndex = buildQueue.findIndex(
@@ -78,78 +78,77 @@ export function BuildSequenceViewer({
               const originalStepNumber = originalStepIndex + 1;
 
               return (
-                <Card
+                <div
                   key={`${dependency.id}-${dependency.level}`}
-                  className={`relative ${
-                    isBuilt ? "bg-green-50 border-green-200" : ""
+                  className={`flex items-center justify-between p-2 rounded-md border ${
+                    isBuilt ? "bg-green-50 border-green-200" : "border-border"
                   }`}
                 >
-                  <CardContent className="p-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        {/* Step Number */}
-                        <div
-                          className={`flex items-center justify-center w-8 h-8 rounded-full text-sm font-medium ${
-                            isBuilt
-                              ? "bg-green-600 text-white"
-                              : "bg-primary text-primary-foreground"
-                          }`}
-                        >
-                          {originalStepNumber}
-                        </div>
+                  {/* Left side: Step + Building info */}
+                  <div className="flex items-center gap-3 flex-1 min-w-0">
+                    {/* Step Number */}
+                    <div
+                      className={`flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium ${
+                        isBuilt
+                          ? "bg-green-600 text-white"
+                          : "bg-primary text-primary-foreground"
+                      }`}
+                    >
+                      {originalStepNumber}
+                    </div>
 
-                        {/* Building Info */}
-                        <div>
-                          <div className="font-medium">
-                            {getBuildingDisplayName(dependency.id)}
-                          </div>
-                          <div className="text-sm text-muted-foreground">
-                            Level {dependency.level}
-                          </div>
-                        </div>
+                    {/* Building Info */}
+                    <div className="flex-1 min-w-0">
+                      <div className="font-medium truncate">
+                        {getBuildingDisplayName(dependency.id)}
                       </div>
-
-                      {/* Status and Actions */}
-                      <div className="flex items-center gap-2">
-                        {isBuilt ? (
-                          <>
-                            <Badge variant="default" className="bg-green-600">
-                              ✓ Built
-                            </Badge>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() =>
-                                handleUnbuildClick(
-                                  dependency.id,
-                                  dependency.level
-                                )
-                              }
-                            >
-                              Unbuild
-                            </Button>
-                          </>
-                        ) : (
-                          <Button
-                            onClick={() =>
-                              handleBuildClick(dependency.id, dependency.level)
-                            }
-                            size="sm"
-                          >
-                            Build
-                          </Button>
-                        )}
+                      <div className="text-xs text-muted-foreground">
+                        Level {dependency.level}
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+
+                  {/* Right side: Status and Actions */}
+                  <div className="flex items-center gap-2">
+                    {isBuilt ? (
+                      <>
+                        <Badge
+                          variant="default"
+                          className="bg-green-600 text-xs"
+                        >
+                          ✓ Built
+                        </Badge>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="h-7 px-2 text-xs"
+                          onClick={() =>
+                            handleUnbuildClick(dependency.id, dependency.level)
+                          }
+                        >
+                          Unbuild
+                        </Button>
+                      </>
+                    ) : (
+                      <Button
+                        onClick={() =>
+                          handleBuildClick(dependency.id, dependency.level)
+                        }
+                        size="sm"
+                        className="h-7 px-2 text-xs"
+                      >
+                        Build
+                      </Button>
+                    )}
+                  </div>
+                </div>
               );
-            })
-          )}
-        </div>
+            })}
+          </div>
+        )}
 
         {buildQueue && filteredQueue.length > 0 && (
-          <div className="mt-4 text-xs text-muted-foreground text-center">
+          <div className="mt-3 text-xs text-muted-foreground text-center">
             Build sequence calculated and cached. Positions remain stable - only
             visual states update.
             {showBuiltOnly && (

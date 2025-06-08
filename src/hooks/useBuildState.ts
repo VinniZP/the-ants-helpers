@@ -20,10 +20,17 @@ export interface TargetBuilding {
   level: number;
 }
 
+// Minimal queue item for storage (no recursive dependencies)
+interface MinimalQueueItem {
+  id: BuildingId;
+  level: number;
+  step: number;
+}
+
 // Queue data interface for persistence
 export interface QueueData {
   target: TargetBuilding;
-  queue: BuildRequirement[];
+  queue: MinimalQueueItem[]; // Store minimal data only
   calculatedAt: string;
   version: string;
 }
@@ -35,8 +42,42 @@ const QUEUE_STORAGE_KEY = "ants-build-queue";
 /**
  * Queue persistence functions
  */
-function saveQueueToStorage(queueData: QueueData): void {
+// Convert full BuildRequirement array to minimal storage format
+function compressQueueForStorage(
+  queue: BuildRequirement[]
+): MinimalQueueItem[] {
+  return queue.map((req) => ({
+    id: req.id,
+    level: req.level,
+    step: req.step,
+  }));
+}
+
+// Convert minimal storage format back to BuildRequirement array
+function decompressQueueFromStorage(
+  minimalQueue: MinimalQueueItem[],
+  buildState: BuildState
+): BuildRequirement[] {
+  return minimalQueue.map((item) => ({
+    id: item.id,
+    level: item.level,
+    step: item.step,
+    isBuilt: (buildState[item.id] || 0) >= item.level,
+    dependencies: [], // We don't need dependencies for display, just step order
+  }));
+}
+
+function saveQueueToStorage(
+  target: TargetBuilding,
+  queue: BuildRequirement[]
+): void {
   try {
+    const queueData: QueueData = {
+      target,
+      queue: compressQueueForStorage(queue),
+      calculatedAt: new Date().toISOString(),
+      version: "1.0",
+    };
     localStorage.setItem(QUEUE_STORAGE_KEY, JSON.stringify(queueData));
   } catch (error) {
     console.error("Error saving queue to localStorage:", error);
@@ -44,7 +85,9 @@ function saveQueueToStorage(queueData: QueueData): void {
   }
 }
 
-function loadQueueFromStorage(): QueueData | null {
+function loadQueueFromStorage(
+  buildState: BuildState
+): BuildRequirement[] | null {
   try {
     const saved = localStorage.getItem(QUEUE_STORAGE_KEY);
     if (!saved) return null;
@@ -58,10 +101,23 @@ function loadQueueFromStorage(): QueueData | null {
       return null;
     }
 
-    return parsed;
+    // Decompress the minimal queue data back to full BuildRequirement format
+    return decompressQueueFromStorage(parsed.queue, buildState);
   } catch (error) {
     console.error("Error loading queue from localStorage:", error);
     clearQueueFromStorage();
+    return null;
+  }
+}
+
+function getStoredQueueTarget(): TargetBuilding | null {
+  try {
+    const saved = localStorage.getItem(QUEUE_STORAGE_KEY);
+    if (!saved) return null;
+
+    const parsed = JSON.parse(saved) as QueueData;
+    return parsed.target || null;
+  } catch (error) {
     return null;
   }
 }
@@ -152,16 +208,22 @@ export function useBuildState() {
       }
 
       // Load and validate build queue
-      const savedQueue = loadQueueFromStorage();
-      if (savedQueue) {
+      const stateToUse = saved
+        ? { ...BASE_BUILDINGS, ...JSON.parse(saved) }
+        : BASE_BUILDINGS;
+
+      const savedQueue = loadQueueFromStorage(stateToUse);
+      const storedQueueTarget = getStoredQueueTarget();
+
+      if (savedQueue && storedQueueTarget) {
         // Check if saved queue matches current target
         if (savedTarget) {
           const currentTarget = JSON.parse(savedTarget) as TargetBuilding;
           if (
-            savedQueue.target.id === currentTarget.id &&
-            savedQueue.target.level === currentTarget.level
+            storedQueueTarget.id === currentTarget.id &&
+            storedQueueTarget.level === currentTarget.level
           ) {
-            setBuildQueue(savedQueue.queue);
+            setBuildQueue(savedQueue);
           } else {
             // Target mismatch, clear old queue
             clearQueueFromStorage();
@@ -300,16 +362,10 @@ export function useBuildState() {
           level,
           buildState
         );
-        const queueData: QueueData = {
-          target: { id: buildingId, level },
-          queue: dependencies,
-          calculatedAt: new Date().toISOString(),
-          version: "1.0",
-        };
 
         setBuildQueue(dependencies);
         setTargetBuilding({ id: buildingId, level });
-        saveQueueToStorage(queueData);
+        saveQueueToStorage({ id: buildingId, level }, dependencies);
       } catch (error) {
         console.error("Error calculating build queue:", error);
         setQueueError("Failed to calculate build queue");
