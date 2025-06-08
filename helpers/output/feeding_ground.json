@@ -1,0 +1,521 @@
+{
+  "$schema": "../building-schema.json",
+  "id": "feeding_ground",
+  "levels": [
+    {
+      "level": 0,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 0,
+      "sand": 0,
+      "diamonds": 0,
+      "power": 0.0,
+      "power_delta": 0.0,
+      "population": 0,
+      "honeydew": 0,
+      "time": 0.0,
+      "notes": "",
+      "requirements": {
+        "queen": 1
+      }
+    },
+    {
+      "level": 1,
+      "meat": 60,
+      "fungus": 140,
+      "plant": 0,
+      "wet_soil": 0,
+      "sand": 0,
+      "diamonds": 0,
+      "power": 52.0,
+      "power_delta": 52.0,
+      "population": 0,
+      "honeydew": 0,
+      "time": 0.0,
+      "notes": "",
+      "requirements": {
+        "queen": 2
+      }
+    },
+    {
+      "level": 2,
+      "meat": 120,
+      "fungus": 200,
+      "plant": 0,
+      "wet_soil": 0,
+      "sand": 0,
+      "diamonds": 1,
+      "power": 54.0,
+      "power_delta": 2.0,
+      "population": 0,
+      "honeydew": 0,
+      "time": 0.08333333333333333,
+      "notes": "",
+      "requirements": {
+        "queen": 3
+      }
+    },
+    {
+      "level": 3,
+      "meat": 160,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 280,
+      "sand": 0,
+      "diamonds": 3,
+      "power": 57.0,
+      "power_delta": 3.0,
+      "population": 0,
+      "honeydew": 320,
+      "time": 0.6666666666666666,
+      "notes": "",
+      "requirements": {
+        "queen": 4
+      }
+    },
+    {
+      "level": 4,
+      "meat": 680,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 1600,
+      "sand": 700,
+      "diamonds": 11,
+      "power": 61.0,
+      "power_delta": 4.0,
+      "population": 0,
+      "honeydew": 0,
+      "time": 3.1666666666666665,
+      "notes": "",
+      "requirements": {
+        "queen": 5
+      }
+    },
+    {
+      "level": 5,
+      "meat": 1400,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 2400,
+      "sand": 0,
+      "diamonds": 19,
+      "power": 66.0,
+      "power_delta": 5.0,
+      "population": 0,
+      "honeydew": 1000,
+      "time": 6.0,
+      "notes": "",
+      "requirements": {
+        "queen": 6
+      }
+    },
+    {
+      "level": 6,
+      "meat": 4000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 3400,
+      "sand": 0,
+      "diamonds": 50,
+      "power": 75.0,
+      "power_delta": 9.0,
+      "population": 0,
+      "honeydew": 2000,
+      "time": 17.666666666666668,
+      "notes": "",
+      "requirements": {
+        "queen": 7
+      }
+    },
+    {
+      "level": 7,
+      "meat": 9200,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 16000,
+      "sand": 0,
+      "diamonds": 121,
+      "power": 91.0,
+      "power_delta": 16.0,
+      "population": 0,
+      "honeydew": 6400,
+      "time": 46.833333333333336,
+      "notes": "",
+      "requirements": {
+        "queen": 8
+      }
+    },
+    {
+      "level": 8,
+      "meat": 14000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 22000,
+      "sand": 0,
+      "diamonds": 225,
+      "power": 129.0,
+      "power_delta": 38.0,
+      "population": 0,
+      "honeydew": 30000,
+      "time": 93.66666666666667,
+      "notes": "",
+      "requirements": {
+        "queen": 9
+      }
+    },
+    {
+      "level": 9,
+      "meat": 20000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 32000,
+      "sand": 0,
+      "diamonds": 304,
+      "power": 176.0,
+      "power_delta": 47.0,
+      "population": 0,
+      "honeydew": 54000,
+      "time": 131.16666666666666,
+      "notes": "",
+      "requirements": {
+        "queen": 10
+      }
+    },
+    {
+      "level": 10,
+      "meat": 26000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 44000,
+      "sand": 0,
+      "diamonds": 385,
+      "power": 245.0,
+      "power_delta": 69.0,
+      "population": 0,
+      "honeydew": 96000,
+      "time": 170.5,
+      "notes": "",
+      "requirements": {
+        "queen": 11
+      }
+    },
+    {
+      "level": 11,
+      "meat": 36000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 62000,
+      "sand": 0,
+      "diamonds": 487,
+      "power": 330.0,
+      "power_delta": 85.0,
+      "population": 0,
+      "honeydew": 160000,
+      "time": 221.5,
+      "notes": "",
+      "requirements": {
+        "queen": 12
+      }
+    },
+    {
+      "level": 12,
+      "meat": 62000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 100000,
+      "sand": 0,
+      "diamonds": 616,
+      "power": 437.0,
+      "power_delta": 107.0,
+      "population": 0,
+      "honeydew": 220000,
+      "time": 288.0,
+      "notes": "",
+      "requirements": {
+        "queen": 13
+      }
+    },
+    {
+      "level": 13,
+      "meat": 100000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 160000,
+      "sand": 0,
+      "diamonds": 780,
+      "power": 571.0,
+      "power_delta": 134.0,
+      "population": 0,
+      "honeydew": 320000,
+      "time": 374.3333333333333,
+      "notes": "",
+      "requirements": {
+        "queen": 14
+      }
+    },
+    {
+      "level": 14,
+      "meat": 160000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 260000,
+      "sand": 0,
+      "diamonds": 988,
+      "power": 754.0,
+      "power_delta": 183.0,
+      "population": 0,
+      "honeydew": 420000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 15
+      }
+    },
+    {
+      "level": 15,
+      "meat": 280000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 460000,
+      "sand": 0,
+      "diamonds": 1337,
+      "power": 1025.0,
+      "power_delta": 271.0,
+      "population": 0,
+      "honeydew": 600000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 16
+      }
+    },
+    {
+      "level": 16,
+      "meat": 500000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 800000,
+      "sand": 0,
+      "diamonds": 1809,
+      "power": 1385.0,
+      "power_delta": 360.0,
+      "population": 0,
+      "honeydew": 840000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 17
+      }
+    },
+    {
+      "level": 17,
+      "meat": 900000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 1600000,
+      "sand": 0,
+      "diamonds": 2449,
+      "power": 1897.0,
+      "power_delta": 512.0,
+      "population": 0,
+      "honeydew": 1200000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 18
+      }
+    },
+    {
+      "level": 18,
+      "meat": 1600000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 2600000,
+      "sand": 0,
+      "diamonds": 3314,
+      "power": 2548.0,
+      "power_delta": 651.0,
+      "population": 0,
+      "honeydew": 2400000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 19
+      }
+    },
+    {
+      "level": 19,
+      "meat": 2600000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 4400000,
+      "sand": 0,
+      "diamonds": 4486,
+      "power": 3594.0,
+      "power_delta": 1046.0,
+      "population": 0,
+      "honeydew": 3800000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 20
+      }
+    },
+    {
+      "level": 20,
+      "meat": 4400000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 7600000,
+      "sand": 0,
+      "diamonds": 6072,
+      "power": 4876.0,
+      "power_delta": 1282.0,
+      "population": 0,
+      "honeydew": 6800000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 21
+      }
+    },
+    {
+      "level": 21,
+      "meat": 7200000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 12000000,
+      "sand": 0,
+      "diamonds": 7689,
+      "power": 6658.0,
+      "power_delta": 1782.0,
+      "population": 0,
+      "honeydew": 8800000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 22
+      }
+    },
+    {
+      "level": 22,
+      "meat": 12000000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 18000000,
+      "sand": 0,
+      "diamonds": 9737,
+      "power": 8939.0,
+      "power_delta": 2281.0,
+      "population": 0,
+      "honeydew": 12000000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 23
+      }
+    },
+    {
+      "level": 23,
+      "meat": 16000000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 24000000,
+      "sand": 0,
+      "diamonds": 12329,
+      "power": 11951.0,
+      "power_delta": 3012.0,
+      "population": 0,
+      "honeydew": 14000000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 24
+      }
+    },
+    {
+      "level": 24,
+      "meat": 20000000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 32000000,
+      "sand": 0,
+      "diamonds": 16689,
+      "power": 16461.0,
+      "power_delta": 4510.0,
+      "population": 0,
+      "honeydew": 16000000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 25
+      }
+    },
+    {
+      "level": 25,
+      "meat": 22000000,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 38000000,
+      "sand": 0,
+      "diamonds": 22590,
+      "power": 22079.0,
+      "power_delta": 5618.0,
+      "population": 0,
+      "honeydew": 18000000,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 26
+      }
+    },
+    {
+      "level": "Общее",
+      "meat": 87913620,
+      "fungus": 340,
+      "plant": 0,
+      "wet_soil": 142163680,
+      "sand": 700,
+      "diamonds": 92491,
+      "power": 0,
+      "power_delta": 0,
+      "population": 0,
+      "honeydew": 85749720,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "queen": 27
+      }
+    }
+  ],
+  "warns": [
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info",
+    "Column requirement_1 not found in level_info"
+  ]
+}

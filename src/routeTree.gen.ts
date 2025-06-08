@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as ScheduleImport } from './routes/schedule'
 import { Route as NotificationsImport } from './routes/notifications'
 import { Route as CustomImport } from './routes/custom'
+import { Route as BuildingDependenciesImport } from './routes/building-dependencies'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -36,6 +37,12 @@ const CustomRoute = CustomImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const BuildingDependenciesRoute = BuildingDependenciesImport.update({
+  id: '/building-dependencies',
+  path: '/building-dependencies',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
@@ -51,6 +58,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/building-dependencies': {
+      id: '/building-dependencies'
+      path: '/building-dependencies'
+      fullPath: '/building-dependencies'
+      preLoaderRoute: typeof BuildingDependenciesImport
       parentRoute: typeof rootRoute
     }
     '/custom': {
@@ -81,6 +95,7 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/building-dependencies': typeof BuildingDependenciesRoute
   '/custom': typeof CustomRoute
   '/notifications': typeof NotificationsRoute
   '/schedule': typeof ScheduleRoute
@@ -88,6 +103,7 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/building-dependencies': typeof BuildingDependenciesRoute
   '/custom': typeof CustomRoute
   '/notifications': typeof NotificationsRoute
   '/schedule': typeof ScheduleRoute
@@ -96,6 +112,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/building-dependencies': typeof BuildingDependenciesRoute
   '/custom': typeof CustomRoute
   '/notifications': typeof NotificationsRoute
   '/schedule': typeof ScheduleRoute
@@ -103,15 +120,32 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/custom' | '/notifications' | '/schedule'
+  fullPaths:
+    | '/'
+    | '/building-dependencies'
+    | '/custom'
+    | '/notifications'
+    | '/schedule'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/custom' | '/notifications' | '/schedule'
-  id: '__root__' | '/' | '/custom' | '/notifications' | '/schedule'
+  to:
+    | '/'
+    | '/building-dependencies'
+    | '/custom'
+    | '/notifications'
+    | '/schedule'
+  id:
+    | '__root__'
+    | '/'
+    | '/building-dependencies'
+    | '/custom'
+    | '/notifications'
+    | '/schedule'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BuildingDependenciesRoute: typeof BuildingDependenciesRoute
   CustomRoute: typeof CustomRoute
   NotificationsRoute: typeof NotificationsRoute
   ScheduleRoute: typeof ScheduleRoute
@@ -119,6 +153,7 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BuildingDependenciesRoute: BuildingDependenciesRoute,
   CustomRoute: CustomRoute,
   NotificationsRoute: NotificationsRoute,
   ScheduleRoute: ScheduleRoute,
@@ -135,6 +170,7 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/building-dependencies",
         "/custom",
         "/notifications",
         "/schedule"
@@ -142,6 +178,9 @@ export const routeTree = rootRoute
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/building-dependencies": {
+      "filePath": "building-dependencies.tsx"
     },
     "/custom": {
       "filePath": "custom.tsx"

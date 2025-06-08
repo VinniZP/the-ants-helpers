@@ -1,0 +1,180 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Building Schema",
+  "description": "Schema for building data structure",
+  "definitions": {
+    "BuildingId": {
+      "type": "string",
+      "enum": [
+        "queen",
+        "worker_ant_nest",
+        "woodlouse_colony",
+        "wet_soil_pile",
+        "wet_soil_depot",
+        "wet_soil_depot_2",
+        "wet_soil_depot_3",
+        "trophy_storeroom",
+        "troop_tunnel",
+        "treasure_depot",
+        "toxic_fungi",
+        "termite_farm",
+        "supreme_native_fungi",
+        "spring",
+        "special_nest",
+        "special_ant_habitat",
+        "soldiers_reform_pool",
+        "shooter_ant_nest",
+        "sentinel_tree",
+        "sand_pile",
+        "sand_depot",
+        "sand_depot_2",
+        "sand_depot_3",
+        "resource_tunnel",
+        "resource_factory",
+        "reservoir",
+        "reservoir_2",
+        "reservoir_3",
+        "rally_center_i",
+        "rally_center_ii",
+        "rally_center_iii",
+        "pro_rally_center",
+        "plant_flora",
+        "plant_depot",
+        "plant_depot_2",
+        "plant_depot_3",
+        "native_fungi",
+        "mutation_pool",
+        "mutation_flora",
+        "meat_depot",
+        "meat_depot_2",
+        "meat_depot_3",
+        "leafcutter",
+        "ladybug_habitat",
+        "insect_nest",
+        "insect_habitat",
+        "healing_pool",
+        "guardian_ant_nest",
+        "fungus_depot",
+        "fungus_depot_2",
+        "fungus_depot_3",
+        "feeding_ground",
+        "evolution_fungi",
+        "entrance",
+        "construction_center",
+        "cocoon_medium",
+        "carrier_ant_nest",
+        "aphid",
+        "alliance_center"
+      ]
+    },
+    "BuildingLevel": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "meat": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fungus": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "plant": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "wet_soil": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sand": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "diamonds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "power": {
+          "type": "integer"
+        },
+        "power_delta": {
+          "type": "integer"
+        },
+        "population": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "honeydew": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "time": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "notes": {
+          "type": "string"
+        },
+        "requirements": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "patternProperties": {
+            "^(queen|worker_ant_nest|woodlouse_colony|wet_soil_pile|wet_soil_depot|wet_soil_depot_2|wet_soil_depot_3|trophy_storeroom|troop_tunnel|treasure_depot|toxic_fungi|termite_farm|supreme_native_fungi|spring|special_nest|special_ant_habitat|soldiers_reform_pool|shooter_ant_nest|sentinel_tree|sand_pile|sand_depot|sand_depot_2|sand_depot_3|resource_tunnel|resource_factory|reservoir|reservoir_2|reservoir_3|rally_center_i|rally_center_ii|rally_center_iii|pro_rally_center|plant_flora|plant_depot|plant_depot_2|plant_depot_3|native_fungi|mutation_pool|mutation_flora|meat_depot|meat_depot_2|meat_depot_3|leafcutter|ladybug_habitat|insect_nest|insect_habitat|healing_pool|guardian_ant_nest|fungus_depot|fungus_depot_2|fungus_depot_3|feeding_ground|evolution_fungi|entrance|construction_center|cocoon_medium|carrier_ant_nest|aphid|alliance_center)$": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      },
+      "required": [
+        "level",
+        "meat",
+        "fungus",
+        "plant",
+        "wet_soil",
+        "sand",
+        "diamonds",
+        "power",
+        "power_delta",
+        "population",
+        "honeydew",
+        "time",
+        "notes",
+        "requirements"
+      ],
+      "additionalProperties": false
+    },
+    "Building": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/BuildingId"
+        },
+        "levels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BuildingLevel"
+          },
+          "minItems": 1
+        },
+        "warns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["id", "levels", "warns"],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "$ref": "#/definitions/Building"
+}

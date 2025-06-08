@@ -3,7 +3,7 @@ import { useRouterState } from "@tanstack/react-router";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import { Link } from "@tanstack/react-router";
-import { Calendar, Plus, Settings, Gamepad2 } from "lucide-react";
+import { Calendar, Plus, Settings, Gamepad2, Building } from "lucide-react";
 import { PWAInstallButton } from "../pwa/PWAInstallButton";
 
 interface MobileLayoutProps {
@@ -57,6 +57,12 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({
       label: "Schedule",
       icon: Gamepad2,
       description: "Game events",
+    },
+    {
+      path: "/building-dependencies",
+      label: "Buildings",
+      icon: Building,
+      description: "Building dependencies",
     },
     {
       path: "/custom",

@@ -1,0 +1,197 @@
+{
+  "$schema": "../building-schema.json",
+  "id": "plant_depot",
+  "levels": [
+    {
+      "level": 1,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 1400,
+      "sand": 440,
+      "diamonds": 0,
+      "power": 52,
+      "power_delta": 52,
+      "population": 0,
+      "honeydew": 0,
+      "time": 0,
+      "notes": "",
+      "requirements": {
+        "plant_flora": 1
+      },
+      "depotCapacity": 30000
+    },
+    {
+      "level": 2,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 6800,
+      "sand": 2200,
+      "diamonds": 19,
+      "power": 54,
+      "power_delta": 2,
+      "population": 0,
+      "honeydew": 3200,
+      "time": 6,
+      "notes": "",
+      "requirements": {
+        "plant_flora": 2
+      },
+      "depotCapacity": 50000
+    },
+    {
+      "level": 3,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 10000,
+      "sand": 3200,
+      "diamonds": 25,
+      "power": 56,
+      "power_delta": 2,
+      "population": 0,
+      "honeydew": 4600,
+      "time": 7.833333333333333,
+      "notes": "",
+      "requirements": {
+        "plant_flora": 3
+      },
+      "depotCapacity": 100000
+    },
+    {
+      "level": 4,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 16000,
+      "sand": 4800,
+      "diamonds": 35,
+      "power": 59,
+      "power_delta": 3,
+      "population": 0,
+      "honeydew": 7000,
+      "time": 11.833333333333334,
+      "notes": "",
+      "requirements": {
+        "plant_flora": 4
+      },
+      "depotCapacity": 200000
+    },
+    {
+      "level": 5,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 24000,
+      "sand": 7200,
+      "diamonds": 50,
+      "power": 64,
+      "power_delta": 5,
+      "population": 0,
+      "honeydew": 10000,
+      "time": 17.666666666666668,
+      "notes": "",
+      "requirements": {
+        "plant_flora": 5
+      },
+      "depotCapacity": 300000
+    },
+    {
+      "level": 6,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 34000,
+      "sand": 10000,
+      "diamonds": 93,
+      "power": 86,
+      "power_delta": 22,
+      "population": 0,
+      "honeydew": 16000,
+      "time": 35.166666666666664,
+      "notes": "",
+      "requirements": {
+        "plant_flora": 6
+      },
+      "depotCapacity": 400000
+    },
+    {
+      "level": 7,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 48000,
+      "sand": 14000,
+      "diamonds": 174,
+      "power": 120,
+      "power_delta": 34,
+      "population": 0,
+      "honeydew": 26000,
+      "time": 70.33333333333333,
+      "notes": "",
+      "requirements": {
+        "plant_flora": 7
+      },
+      "depotCapacity": 500000
+    },
+    {
+      "level": 8,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 66000,
+      "sand": 20000,
+      "diamonds": 323,
+      "power": 168,
+      "power_delta": 48,
+      "population": 0,
+      "honeydew": 44000,
+      "time": 140.5,
+      "notes": "",
+      "requirements": {
+        "plant_flora": 8
+      },
+      "depotCapacity": 600000
+    },
+    {
+      "level": 9,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 94000,
+      "sand": 28000,
+      "diamonds": 437,
+      "power": 243,
+      "power_delta": 75,
+      "population": 0,
+      "honeydew": 80000,
+      "time": 196.66666666666666,
+      "notes": "",
+      "requirements": {
+        "plant_flora": 9
+      },
+      "depotCapacity": 800000
+    },
+    {
+      "level": 10,
+      "meat": 0,
+      "fungus": 0,
+      "plant": 0,
+      "wet_soil": 140000,
+      "sand": 38000,
+      "diamonds": 554,
+      "power": 338,
+      "power_delta": 95,
+      "population": 0,
+      "honeydew": 92000,
+      "time": 255.66666666666666,
+      "notes": "",
+      "requirements": {
+        "plant_flora": 10
+      },
+      "depotCapacity": 1000000
+    }
+  ],
+  "warns": []
+}
